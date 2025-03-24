@@ -616,7 +616,7 @@ def handle_command(cmd, full_text, sender_id):
     cmd = cmd.lower()
     dprint(f"handle_command => cmd='{cmd}', full_text='{full_text}', sender_id={sender_id}")
     if cmd == "/about":
-        return "Meshtastic-AI Off Grid Chat Bot - By: MR-TBOT.com"
+        return "Meshtastic-AI Off Grid Chat Bot - By: NerdsCorp.net"
     elif cmd in ["/ai", "/bot", "/query", "/data"]:
         user_prompt = full_text[len(cmd):].strip()
         if AI_PROVIDER == "home_assistant" and HOME_ASSISTANT_ENABLE_PIN:
