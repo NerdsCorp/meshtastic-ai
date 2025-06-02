@@ -1,7 +1,5 @@
 # Meshtastic-AI- 
 
-- PLEASE NOTE - v0.4.2 NOW REQUIRES UNIDECODE TO RUN.  PLEASE REINSTALL YOUR REQUIREMENTS IF UPDATING!
-
 ![image](https://github.com/user-attachments/assets/aa75b71a-b534-4e8c-983d-f67d73a73f5b)
 
 
