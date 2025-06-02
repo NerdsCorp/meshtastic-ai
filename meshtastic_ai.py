@@ -119,11 +119,11 @@ add_script_log("Script started.")
 # -----------------------------
 # Load Config Files
 # -----------------------------
-CONFIG_FILE = "config.json"
-COMMANDS_CONFIG_FILE = "commands_config.json"
-MOTD_FILE = "motd.json"
-LOG_FILE = "messages.log"
-ARCHIVE_FILE = "messages_archive.json"
+CONFIG_FILE = "config/config.json"
+COMMANDS_CONFIG_FILE = "config/commands_config.json"
+MOTD_FILE = "config/motd.json"
+LOG_FILE = "config/messages.log"
+ARCHIVE_FILE = "config/messages_archive.json"
 
 print("Loading config files...")
 
