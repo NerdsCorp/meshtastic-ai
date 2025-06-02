@@ -5,5 +5,5 @@ services:
       - 5000:5000
     volumes:
       # Copy config files to directory on docker host and update directory location below
-      - /opt/docker/meshtastic-ai/config :/app/config
+      - /opt/docker/meshtastic-ai/config/:/app/config/
 
