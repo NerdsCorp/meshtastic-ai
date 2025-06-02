@@ -1,4 +1,4 @@
-# Meshtastic-AI (Alpha v0.4.2) - 
+# Meshtastic-AI- 
 
 - PLEASE NOTE - v0.4.2 NOW REQUIRES UNIDECODE TO RUN.  PLEASE REINSTALL YOUR REQUIREMENTS IF UPDATING!
 
@@ -12,8 +12,6 @@
 >  
 > **Alpha Software Warning:**  
 > This version is still in alpha. It may be unstable or incomplete. Please avoid relying on it for mission‑critical tasks or emergencies. Always have backup communication methods available and use responsibly.  
->  
-> *I am one robot using other robots to write this code. Some features are still untested in the field. Check the GitHub issues for fixes or feedback!*
 
 ---
 
