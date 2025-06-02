@@ -1528,6 +1528,36 @@ threading.excepthook = thread_excepthook
 def connection_status_route():
     return jsonify({"status": connection_status, "error": last_error_message})
 
+# Insert start_discord_presence() here
+def start_discord_presence():
+    if not config.get("enable_discord", False) or not config.get("discord_bot_token"):
+        return
+
+    intents = discord.Intents.none()
+    class PresenceClient(discord.Client):
+        async def on_ready(self):
+            print(f"[Discord Presence] Logged in as {self.user}")
+            presence_status = config.get("discord_presence_status", "online").lower()
+            status = discord.Status.online
+            if presence_status == "idle":
+                status = discord.Status.idle
+            elif presence_status == "dnd":
+                status = discord.Status.dnd
+            activity_text = config.get("discord_presence_activity", "Meshtastic-AI Online")
+            activity = discord.Game(name=activity_text)
+            await self.change_presence(status=status, activity=activity)
+
+    def run_presence():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        client = PresenceClient(intents=intents)
+        try:
+            loop.run_until_complete(client.start(config["discord_bot_token"]))
+        except Exception as e:
+            print(f"Discord presence client error: {e}")
+
+    threading.Thread(target=run_presence, daemon=True).start()
+    
 def main():
     global interface, restart_count, server_start_time, reset_event
     server_start_time = server_start_time or datetime.now(timezone.utc)
@@ -1682,32 +1712,3 @@ if __name__ == "__main__":
             add_script_log(f"Unhandled error: {e}")
             print("Encountered an error. Restarting in 30 seconds...")
             time.sleep(30)
-
-def start_discord_presence():
-    if not config.get("enable_discord", False) or not config.get("discord_bot_token"):
-        return
-
-    intents = discord.Intents.none()
-    class PresenceClient(discord.Client):
-        async def on_ready(self):
-            print(f"[Discord Presence] Logged in as {self.user}")
-            presence_status = config.get("discord_presence_status", "online").lower()
-            status = discord.Status.online
-            if presence_status == "idle":
-                status = discord.Status.idle
-            elif presence_status == "dnd":
-                status = discord.Status.dnd
-            activity_text = config.get("discord_presence_activity", "Meshtastic-AI Online")
-            activity = discord.Game(name=activity_text)
-            await self.change_presence(status=status, activity=activity)
-
-    def run_presence():
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        client = PresenceClient(intents=intents)
-        try:
-            loop.run_until_complete(client.start(config["discord_bot_token"]))
-        except Exception as e:
-            print(f"Discord presence client error: {e}")
-
-    threading.Thread(target=run_presence, daemon=True).start()
