@@ -1,11 +1,9 @@
-version: '3.7'
 services:
   meshtastic-ai:
-    image: ghcr.io/nerdscorp/meshtastic-ai
+    image: ghcr.io/nerdscorp/meshtastic-ai:latest
     ports:
       - 5000:5000
     volumes:
       # Copy config files to directory on docker host and update directory location below
-      - /opt/docker/meshtastic-ai/config.json:/app/config.json
-      - /opt/docker/meshtastic-ai/commands_config.json:/app/commands_config.json
-      - /opt/docker/meshtastic-ai/motd.json:/app/motd.json
+      - /opt/docker/meshtastic-ai/config :/app/config
+
