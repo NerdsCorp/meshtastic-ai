@@ -1535,6 +1535,7 @@ def main():
     add_script_log(f"Server restarted. Restart count: {restart_count}")
     print("Starting Meshtastic-AI server...")
     load_archive()
+    start_discord_presence()
         # Additional startup info:
     if ENABLE_DISCORD:
         print(f"Discord configuration enabled: Inbound channel index: {DISCORD_INBOUND_CHANNEL_INDEX}, Webhook URL is {'set' if DISCORD_WEBHOOK_URL else 'not set'}, Bot Token is {'set' if DISCORD_BOT_TOKEN else 'not set'}, Channel ID is {'set' if DISCORD_CHANNEL_ID else 'not set'}.")
