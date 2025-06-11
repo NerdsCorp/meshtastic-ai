@@ -1,7 +1,7 @@
-meshtastic>=2.5.12
-pubsub==0.1.2
-requests==2.32.3
-Flask==3.1.0
-twilio==8.4.0
-unidecode==1.3.6
+meshtastic
+pubsub
+requests
+Flask
+twilio
+unidecode
 discord.py
