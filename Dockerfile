@@ -2,7 +2,7 @@
 FROM python:latest
 
 # Set the maintainer label
-LABEL Maintainer="mr-tbot"
+LABEL Maintainer="nerdscorp"
 
 # Update package lists and install apt packages
 RUN apt-get update && apt-get install -y python3-pip
